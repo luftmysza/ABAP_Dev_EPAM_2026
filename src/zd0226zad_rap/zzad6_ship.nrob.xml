@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_NROB" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <ATTRIBUTES>
+    <OBJECT>ZZAD6_SHIP</OBJECT>
+    <DOMLEN>ZZAD6_DM_NR_SHIP</DOMLEN>
+    <PERCENTAGE>95.0</PERCENTAGE>
+    <BUFFER>X</BUFFER>
+    <NOIVBUFFER>00000010</NOIVBUFFER>
+    <CHANGED_AT>20260922212154.731635</CHANGED_AT>
+    <CHANGED_BY>D0226ZAD</CHANGED_BY>
+    <ENAME>D0226ZAD</ENAME>
+    <EDATE>2026-09-23</EDATE>
+    <ETIME>00:15:53</ETIME>
+   </ATTRIBUTES>
+   <TEXT>
+    <LANGU>E</LANGU>
+    <OBJECT>ZZAD6_SHIP</OBJECT>
+    <TXT>Shipment Number Range</TXT>
+    <TXTSHORT>Shipment Range</TXTSHORT>
+    <ENAME>D0226ZAD</ENAME>
+    <EDATE>2026-09-23</EDATE>
+    <ETIME>00:15:53</ETIME>
+   </TEXT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

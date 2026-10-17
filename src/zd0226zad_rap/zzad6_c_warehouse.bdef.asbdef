@@ -1,0 +1,7 @@
+projection;
+strict;
+
+define behavior for ZZAD6_C_WAREHOUSE alias Warehouse
+{
+  // use action createShipment;
+}

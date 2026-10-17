@@ -1,0 +1,47 @@
+@Metadata.layer: #CORE
+
+@UI.lineItem: [
+  {
+    criticality: 'ShipmentCriticality'
+  }
+]
+
+annotate entity ZZAD6_I_SHIPMENT_WH with
+{
+  @Consumption.semanticObject: 'ZZAD6Shipment'
+  @UI.lineItem: [
+    {
+      position: 10,
+      label: 'Shipment',
+      type: #WITH_INTENT_BASED_NAVIGATION,
+      semanticObjectAction: 'manage'
+    }
+  ]
+  ShipmentId;
+
+  @UI.lineItem: [
+    {
+      position: 20,
+      label: 'Shipping Date'
+    }
+  ]
+  ShipmentDate;
+
+//  @UI.lineItem: [
+//    {
+//      position: 30,
+//      label: 'Partner ID'
+//    }
+//  ]
+//  BusinessPartnerId;
+  
+  @UI.lineItem: [
+    { position: 40, label: 'Partner Name' }
+  ]
+  BusinessPartnerName;
+  
+  @UI.lineItem: [
+    { position: 50, label: 'Items' }
+  ]
+  ItemCount;
+}

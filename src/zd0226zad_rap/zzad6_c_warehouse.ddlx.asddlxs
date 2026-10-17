@@ -1,0 +1,82 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: { 
+    typeName: 'Warehouse',
+    typeNamePlural: 'Warehouses',
+    title: { 
+        type:  #STANDARD,
+        value: 'WarehouseName'
+    }
+}
+
+annotate entity ZZAD6_C_WAREHOUSE with
+{
+  @Consumption.semanticObject: 'ZZAD6Shipment'
+  @UI.fieldGroup: [
+    {
+      qualifier: 'ShipmentActions',
+      position: 10,
+      importance: #HIGH,
+      label: 'Warehouse ID',
+      groupLabel: 'Shi Actions'
+    },
+    {
+      qualifier: 'ShipmentActions',
+      position: 30,
+      label: 'Create Shipment',
+      type: #FOR_INTENT_BASED_NAVIGATION,
+      semanticObjectAction: 'create',
+      requiresContext: false
+    }
+  ]
+  @UI.facet: [
+    {
+      id: 'ShipmentActions',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Shipment Actions',
+      position: 5,
+      targetQualifier: 'ShipmentActions'
+    }
+  ]
+//  @UI.lineItem: [
+//    { position: 10, label: 'Warehouse ID' }
+//  ]
+  @UI.selectionField: [{ position: 10  }]
+  @Search.defaultSearchElement: true
+  WarehouseId;
+  @UI.fieldGroup: [
+    {
+      qualifier: 'ShipmentActions',
+      position: 20,
+      label: 'Warehouse Name'
+    }
+  ]
+//  @UI.lineItem: [
+//    { position: 20, label: 'Warehouse Name' }
+//  ]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.identification: [
+    { position: 20, label: 'Warehouse Name', importance: #HIGH }
+  ]
+  @Search.defaultSearchElement: true
+  WarehouseName;
+  @UI.facet: [
+    {
+      id: 'Inventory',
+      type: #LINEITEM_REFERENCE,
+      label: 'Inventory',
+      position: 10,
+      targetElement: '_Inventory'
+    }
+  ]
+  _Inventory;
+  @UI.facet: [
+    {
+      id: 'Shipments',
+      type: #LINEITEM_REFERENCE,
+      label: 'Shipments',
+      position: 20,
+      targetElement: '_Shipments'
+    }
+  ]
+  _Shipments;
+}

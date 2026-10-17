@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZZAD6_WAREHOUSE</TCODE>
+    <PGMNA>ZZAD6_WAREHOUSE_COCKPIT</PGMNA>
+    <DYPNO>1000</DYPNO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZZAD6_WAREHOUSE</TCODE>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>E</SPRSL>
+    <TCODE>ZZAD6_WAREHOUSE</TCODE>
+    <TTEXT>Warehouse management system</TTEXT>
+   </TSTCT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

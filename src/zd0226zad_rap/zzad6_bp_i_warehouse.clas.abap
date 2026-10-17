@@ -1,0 +1,5 @@
+CLASS zzad6_bp_i_warehouse DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zzad6_i_warehouse.
+ENDCLASS.
+
+CLASS zzad6_bp_i_warehouse IMPLEMENTATION.
+ENDCLASS.

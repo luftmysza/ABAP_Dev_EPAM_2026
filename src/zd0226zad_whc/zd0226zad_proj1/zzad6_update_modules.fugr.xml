@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Update FMs</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZZAD6_UPDATE_MODULESTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZZAD6_UPDATE_MODULES</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZZAD6_FM_SAVE_SHIPMENT</FUNCNAME>
+     <UPDATE_TASK>3</UPDATE_TASK>
+     <SHORT_TEXT>Update Shipment Table</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_SHIPMENT</PARAMETER>
+       <TYP>ZZAD6_D_SHIPMENT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_ITEMS</PARAMETER>
+       <DBSTRUCT>ZZAD6_D_SHIP_ITM</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_SHIPMENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Shipment DB Table</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ITEMS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Shipment Item DB Table</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,86 @@
+managed implementation in class zzad6_bp_i_shipment unique;
+strict;
+with draft;
+
+define behavior for ZZAD6_I_SHIPMENT alias Shipment
+persistent table zzad6_d_shipment
+draft table zzad6_d_ship_d
+lock master
+total etag LastChangedAt
+etag master LastChangedAt
+authorization master ( global )
+early numbering
+{
+  create;
+  update (features : instance) ;
+  delete (features: instance);
+
+  field ( readonly ) ShipmentId, ShipmentHeader, ShipmentCriticality;
+  field ( mandatory : create, readonly : update ) WarehouseId;
+
+  association _Items { create; with draft; }
+
+  validation validateShipmentDate on save { create; update; }
+  validation validateShipmentHasItems on save { create; update; }
+  validation validateShipmentPartner on save { create; update; }
+  validation validateShipmentWarehouse on save { create; update; }
+
+  determination determineShimentDefaultDate on modify { create; }
+
+  draft action (features : instance) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+
+  draft determine action Prepare
+  {
+    validation validateShipmentDate;
+    validation validateShipmentHasItems;
+    validation validateShipmentPartner;
+    validation validateShipmentWarehouse;
+  }
+
+  mapping for ZZAD6_D_SHIPMENT
+  {
+    ShipmentId = ship_id;
+    ShipmentDate = ship_date;
+    BusinessPartnerId = bp_id;
+    WarehouseId = wh_id;
+  }
+}
+
+define behavior for zzad6_i_shipment_item alias ShipmentItem
+persistent table zzad6_d_ship_itm
+draft table zzad6_d_shitem_d
+lock dependent by _Shipment
+etag dependent by _Shipment
+authorization dependent by _Shipment
+early numbering
+{
+  update;
+  delete;
+
+  field ( readonly ) ShipmentId, ItemNumber, LocationCode, UnitOfMeasure, WarehouseId;
+
+  validation validateItemWarehouse on save { create; field LocationId; }
+  validation validateItemStock
+  on save
+  {
+    create;
+    field MaterialId, LocationId, Quantity;
+  }
+
+  determination determineItemWarehouse on modify { create; }
+
+  association _Shipment { with draft; }
+
+  mapping for ZZAD6_D_SHIP_ITM
+  {
+    ShipmentId = ship_id;
+    ItemNumber = line_no;
+    MaterialId = material_id;
+    LocationId = loc_id;
+    WarehouseId = wh_id;
+    Quantity = qty;
+  }
+}

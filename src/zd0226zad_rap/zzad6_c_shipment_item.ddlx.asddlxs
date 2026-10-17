@@ -1,0 +1,124 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Shipment Item',
+  typeNamePlural: 'Shipment Items',
+  title: {
+    type: #STANDARD,
+    value: 'ShipmentItemHeader'
+  }
+}
+
+annotate view ZZAD6_C_SHIPMENT_ITEM with
+{
+  @Search.defaultSearchElement
+  @UI.facet: [
+    {
+      id: 'ItemDetails',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Item Details',
+      position: 10,
+      targetQualifier: 'ItemDetails'
+    }
+  ]
+
+  @UI.lineItem: [
+    { position: 10, label: 'Line' }
+  ]   
+  @UI.fieldGroup: [{
+    qualifier: 'ItemDetails',
+    position: 10,
+    label: 'Line'
+  }]
+  ItemNumber;
+
+  @UI.lineItem: [
+  { position: 20, label: 'Material' }
+  ]
+  @UI.fieldGroup: [{
+    qualifier: 'ItemDetails',
+    position: 20,
+    label: 'Material'
+  }]
+  @UI.textArrangement: #TEXT_FIRST
+  @Consumption.valueHelpDefinition: [
+  {
+   entity: {
+        name: 'ZZAD6_I_MATERIAL_VH',
+        element: 'MaterialId'
+   },
+   additionalBinding: [
+      {
+        localElement: 'WarehouseId',
+        element: 'WarehouseId',
+        usage: #FILTER
+      },
+       {
+        localElement: 'UnitOfMeasure',
+        element: 'UnitOfMeasure',
+        usage: #RESULT
+      }
+    ]
+   }
+  ]
+  MaterialId;
+
+  @UI.lineItem: [
+  { position: 30, label: 'Location' }
+  ]
+  @UI.fieldGroup: [{
+    qualifier: 'ItemDetails',
+    position: 30,
+    label: 'Location'
+  }]
+  @UI.textArrangement: #TEXT_FIRST
+  @Consumption.valueHelpDefinition: [
+   {
+     entity: {
+       name: 'ZZAD6_I_INVENTORY',
+       element: 'LocationId'
+     },
+     additionalBinding: [
+       {
+         localElement: 'WarehouseId',
+         element: 'WarehouseId',
+         usage: #FILTER
+       },
+       {
+        localElement: 'MaterialId',
+        element: 'MaterialId',
+        usage: #FILTER
+       }
+     ]
+   }
+  ]
+  LocationId;
+
+//  @UI.lineItem: [
+//  { position: 40, label: 'Location Code' }
+//  ]
+//  @UI.fieldGroup: [{
+//    qualifier: 'ItemDetails',
+//    position: 40,
+//    label: 'Location Code'
+//  }]
+//  LocationCode;
+
+  @UI.hidden: true
+  WarehouseId;
+
+  @UI.lineItem: [
+  { position: 50, label: 'Quantity' }
+  ]
+  @UI.fieldGroup: [{
+    qualifier: 'ItemDetails',
+    position: 50,
+    label: 'Quantity'
+  }]
+  @UI.dataPoint: {
+    qualifier: 'Quantity',
+    title: 'Quantity'
+  }
+  Quantity;
+
+}

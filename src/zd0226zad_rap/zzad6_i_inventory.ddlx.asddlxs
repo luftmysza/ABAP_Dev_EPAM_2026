@@ -1,0 +1,51 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Inventory',
+    typeNamePlural: 'Inventory'
+}
+
+@UI.lineItem: [
+    {   
+     criticality: 'InventoryItemCriticality'
+    }
+]
+
+annotate view ZZAD6_I_INVENTORY with
+{
+  @UI.lineItem: [
+    { position: 10, label: 'Material' }
+  ]
+  MaterialId;
+  @UI.lineItem: [
+    { position: 20, label: 'Material Description' }
+  ]
+  MaterialName;
+  @UI.lineItem: [
+    { position: 30, label: 'Location' }
+  ]
+  LocationId;
+  @UI.lineItem: [
+    { position: 40, label: 'Location Code' }
+  ]
+  LocationCode;
+//  @UI.lineItem: [
+//    { position: 50, label: 'Warehouse' }
+//  ]
+//  @UI.selectionField: [
+//    { position: 10 }
+//  ]
+//  WarehouseId;
+  @UI.lineItem: [
+    { position: 60, label: 'Stock' }
+  ]
+  StockQuantity;
+  @UI.lineItem: [
+    { position: 70, label: 'Reserved' }
+  ]
+  ReservedQuantity;
+  @UI.lineItem: [
+    { position: 80, label: 'Available' }
+  ]
+  AvailableQuantity;
+}

@@ -1,0 +1,12 @@
+@EndUserText.label: 'Shipment Service'
+define service ZZAD6_UI_SHIPMENT {
+  expose ZZAD6_C_SHIPMENT as Shipments;
+  expose ZZAD6_C_SHIPMENT_ITEM as ShipmentItems;
+  expose ZZAD6_C_WAREHOUSE as Warehouses;
+  expose ZZAD6_I_INVENTORY as Inventory;
+  expose ZZAD6_I_SHIPMENT_WH as WarehouseShipments;
+  expose ZZAD6_I_PARTNER_VH as BusinessPartnerValueHelp;
+  expose ZZAD6_I_WAREHOUSE_VH as WarehouseValueHelp;
+  expose ZZAD6_I_LOCATION_VH as LocationValueHelp;
+  expose ZZAD6_I_MATERIAL_TEXT as MaterialTexts;
+}

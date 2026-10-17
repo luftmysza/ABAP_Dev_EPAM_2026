@@ -1,0 +1,115 @@
+
+
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Shipment',
+  typeNamePlural: 'Shipments',
+  title: {
+    type: #STANDARD,
+    value: 'ShipmentHeader'
+  }
+}
+@UI.lineItem: [
+  {
+    criticality: 'ShipmentCriticality'
+  }
+]
+
+
+annotate view ZZAD6_C_SHIPMENT with
+{
+  @UI.facet: [
+    {
+      id: 'HeaderDate',
+      purpose: #HEADER,
+      type: #FIELDGROUP_REFERENCE,
+      position: 10,
+      targetQualifier: 'Header'
+    },
+    {
+      id: 'ShipmentDetails',
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Shipment Details',
+      position: 10,
+      targetQualifier: 'Details'
+    },
+    {
+      id: 'Items',
+      type: #LINEITEM_REFERENCE,
+      label: 'Items',
+      position: 20,
+      targetElement: '_Items'
+    }
+  ]
+
+  @UI.lineItem: [
+    { position: 10, importance: #HIGH, label: 'Shipment' }
+  ]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'Details',
+      position: 10,
+      label: 'Shipment ID'
+    }
+  ]
+  ShipmentId;
+
+
+  @UI.lineItem: [
+    { position: 20, importance: #HIGH, label: 'Shipping Date' }
+  ]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.fieldGroup: [
+    {
+      qualifier: 'Header',
+      position: 10,
+      label: 'Shipping Date'
+    },
+    {
+      qualifier: 'Details',
+      position: 20,
+      label: 'Shipping Date'
+    }
+  ]
+  ShipmentDate;
+
+
+  @Consumption.valueHelpDefinition: [{
+    entity: {
+      name: 'ZZAD6_I_WAREHOUSE_VH',
+      element: 'WarehouseId'
+    }
+  }]
+  @UI.textArrangement: #TEXT_FIRST
+  @UI.fieldGroup: [
+    {
+      qualifier: 'Details',
+      position: 30,
+      label: 'Warehouse'
+    }
+  ]
+  WarehouseId;
+
+
+  @UI.lineItem: [
+    { position: 30, importance: #HIGH, label: 'Business Partner' }
+  ]
+  @UI.selectionField: [{ position: 30 }]
+  @Consumption.valueHelpDefinition: [{
+    entity: {
+      name: 'ZZAD6_I_PARTNER_VH',
+      element: 'BusinessPartnerId'
+    }
+  }]
+  @UI.textArrangement: #TEXT_FIRST
+  @UI.fieldGroup: [
+    {
+      qualifier: 'Details',
+      position: 40,
+      label: 'Business Partner'
+    }
+  ]
+  BusinessPartnerId;
+}

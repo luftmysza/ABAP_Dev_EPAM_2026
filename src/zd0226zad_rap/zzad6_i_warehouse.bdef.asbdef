@@ -1,0 +1,11 @@
+managed implementation in class zzad6_bp_i_warehouse unique;
+strict;
+
+define behavior for ZZAD6_I_WAREHOUSE alias Warehouse
+persistent table ZZAD6_D_WAREH
+lock master
+authorization master ( global )
+//etag master <field_name>
+{
+  // action createShipment result [1] $self;
+}

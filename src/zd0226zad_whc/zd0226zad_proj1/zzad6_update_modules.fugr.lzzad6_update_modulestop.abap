@@ -1,0 +1,3 @@
+FUNCTION-POOL ZZAD6_UPDATE_MODULES.         "MESSAGE-ID ..
+
+* INCLUDE LZZAD6_UPDATE_MODULESD...          " Local class definition
