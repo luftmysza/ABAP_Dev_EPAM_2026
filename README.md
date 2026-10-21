@@ -1,4 +1,4 @@
-# ABAP_Dev_EAPM_2026
+# ABAP_Dev_EPAM_2026
 
 A repository containing my development objects created within the ABAP Development program at EPAM.
 
